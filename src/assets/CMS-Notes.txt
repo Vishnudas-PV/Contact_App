@@ -1,0 +1,210 @@
+
+
+                        CONTACT MANAGER
+              ----------------------------------------------          
+
+    1. Create a new project - ng new contact-app
+    2. RUn the new project  - ng serve --open
+    3. Clear the code in app.component.html
+    4. Install 3rd party libraries - bootstrap.fontawesome,googlefonts 
+            -> Install bootstrap - npm i bootstrap
+            ->Configure bootstrap -
+                In angular.json :
+                   "styles":    [
+                                    "src/styles.css",
+                                    "node_modules/bootstrap/dist/css/bootstrap.min.css"
+             
+              
+                                ],
+
+                   "scripts":   [
+                                     "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+                                ] 
+
+           ->In index.html,
+                 <!-- bootstrap -->
+                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+                                  
+           ->Install fontawesome         
+             -npm install --save @fortawesome/fontawesome-free
+             -copy link in the index.html
+                    <!-- font awesome -->
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />              
+
+           ->Use Google font
+               In style.css (globaly edit) ,paste
+               import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Alkatra&family=Anton&family=Arbutus&family=Bad+Script&family=Barrio&family=Baumans&family=Bigelow+Rules&family=Black+Ops+One&family=Bungee+Spice&family=Caprasimo&family=Chivo+Mono&family=Concert+One&family=Elsie+Swash+Caps&family=Foldit:wght@700&family=Kaushan+Script&family=Lobster&family=Lobster+Two&family=Martian+Mono:wght@100;200;300&family=Miltonian+Tattoo&family=Montez&family=Oswald:wght@700&family=Permanent+Marker&family=Righteous&family=Roboto+Condensed&family=Rubik+Iso&family=Rubik+Wet+Paint&family=Sedgwick+Ave+Display&family=Smokum&family=Staatliches&family=Yatra+One&family=Zeyada&display=swap'); 
+           
+    5 Create html pages or components
+             ->Contact-manager -- View All contacts == ng g c contactManager
+             ->Add Contacts --    ng g c addContacts
+             ->View  Contacts -- ng g c viewContact
+             ->Edit Contact -- edit special contact - ng  g c editContact
+
+    6 Setup path for each component - routing
+                localhost:4200 -> localhost:4200/contactManager
+              Inside app-routing.module.ts
+              
+          {
+    //localhost:4200 -> localhost:4200/contactManager
+    path:'',redirectTo:'contactManager',pathMatch:'full'
+  
+  },  {
+     //listing all contact details
+    path:'contactManager',component:ContactManagerComponent,
+  }
+ ,
+ {
+  //Add a new contact
+  path:'contactManager/addContact',component:AddContactsComponent,
+ 
+
+ },
+ {
+  //view a particular contact
+  path:'contactManager/viewContact/:id',component:ViewContactComponent,
+ },
+ {
+  //edit a particular contact
+  path:'contactManager/editContact/:contactId',component:EditContactComponent ,
+
+ },
+ {
+  //if the path is not correct
+  path:'**',component:PagenotFoundComponent,
+ }
+
+
+    7. <router-outlet></router-outlet>    in app.component.html
+        - Page to view requested components          
+
+    8. Design full pages 
+
+    9. API INTEGRATION
+
+       To fetch data and display        
+
+       ->Create a server folder
+       ->Inside it, Create db.json file
+       ->Goto jsonplaceholder - my json data - content 
+
+       ->Create a package.json file - npm init
+       Update package.json as
+       ->"start":"json-server --watch db.json --port 3000",
+
+       ->Install npm i json-server
+       
+       ->Run the backend
+       ->Open the server folder in Open Integrated Terminal
+       ->npm start
+
+    10. Create Model folder in src   
+       ->Inside in it create myContact.ts file and myGroup.ts file
+
+    11. Asynchronous Resolving
+
+        JS                          TS
+      Promise                    Observable  ( (library) rxjs-Reactive Extension JavaScript )
+      .then()                     .subscribe()
+      .catch()                    .catch()
+
+      Api s required for this project     
+      1.display all Contact information   -get
+      2.View all Contact information      -get
+      3.Update all Contact information    -put
+      4.Delete all Contact inoformation   -delete
+
+    12. Create Services 
+      SERVICES- Pass data from one component to another 
+               if different components share the same data then we use to create a service 
+
+      ng g s service-name -> ng g s services/api         
+
+
+    13. To Get http methods for api fetching   
+        
+        ->Import HttpClientModule in app.module.ts
+         
+         import{HttpClientModule} from '@angular/common/http';
+         import[
+            HttpClientModule
+         ]
+
+    
+    14. Dependency Injection
+    
+     -> Data share between two dependent classes
+     -> It perform inside the constructor 
+        Constructor -> Is a special member function
+                    -> It executes first
+
+
+    Syntax for DI  -> constructor(access-specifier variable-name : class-name)    
+
+    15. ngOnInit
+        ->It is a lifecycle hook
+        ->Starting stage of a component creation
+   
+    16. Data binding
+
+      ->Data sharing inside a component (ts,html)
+        1. One way data binding(ts->html or html to ts)
+          a.) Component (ts) to view(html)  -----    (ts->html)
+            1.)String interpolation -- syntax:  {{variable-name}}  (inside in html)
+            2.)Property binding -- syntax: [attribute-name]= "property-name"
+
+          b.)View (html) to component (ts)
+            1.)Event binding
+                ->syntax:   (event-name)="function-name"
+
+
+              **Events  
+              ->Events are "things" that happen to html page
+                 ->An HTML web page has finished loading
+                 ->An HTML input field was changed
+                 ->An HTML button was clicked
+            
+            2.)Event binding using '$'event 
+                  ->$event is used in function argument 
+                  ->syntax:  (event-name)="function-name($event)"  (in html)
+                  ->function-name(event)  (in ts  ,the dollar sign is not defined)
+
+
+        2. Two way Data Binding
+          ->ngModel 
+              ->Syntax:  [(ngModel)]="property-name"
+              -> ngModel imports in app.module.ts - FormsModule
+              -> Creates a FormControl instance from a domain model and binds it to a form control element. 
+              ->add this into input tag also put name attribute in it.
+
+
+    17. Directories  - To Manipulate DOM
+          -> Component Directories
+          -> Structural Directories
+              *ngIf= "condition"
+
+              *ngFor="let var-name of array-name"
+ 
+    18. ActivatedRoute(CLASS)
+       ->Provides access to information about a route associated with a component that is loaded in an outlet. Use to traverse the RouterState 
+        tree and extract information from nodes.
+
+          ->Parameters
+            -> params: An observable of the matrix parameters scoped to this route.
+            
+    19. Transforming data using pipes
+        -> Pipes are simple functions to use in template expressions to accept an input value and return a transformed value.
+       
+        ->Angular provides built-in pipes for typical data transformations
+
+          eg: DatePipe --	Formats a date value according to locale rules.
+             -> UppercasePipe - Transforms text to all upper case
+             -> LowerCasePipe	Transforms text to all lower case.
+             -> CurrencyPipe	Transforms a number to a currency string, formatted according to locale rules.
+             -> DecimalPipe	Transforms a number into a string with a decimal point, formatted according to locale rules.
+             -> PercentPipe	Transforms a number to a percentage string, formatted according to locale rules.            
+    
+    20. Creating a pipe
+        ->ng g p pipes/filter
+        

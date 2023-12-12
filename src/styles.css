@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Alkatra&family=Anton&family=Arbutus&family=Bad+Script&family=Barrio&family=Baumans&family=Bigelow+Rules&family=Black+Ops+One&family=Bungee+Spice&family=Caprasimo&family=Chivo+Mono&family=Concert+One&family=Elsie+Swash+Caps&family=Foldit:wght@700&family=Kaushan+Script&family=Lobster&family=Lobster+Two&family=Martian+Mono:wght@100;200;300&family=Miltonian+Tattoo&family=Montez&family=Oswald:wght@700&family=Permanent+Marker&family=Righteous&family=Roboto+Condensed&family=Rubik+Iso&family=Rubik+Wet+Paint&family=Sedgwick+Ave+Display&family=Smokum&family=Staatliches&family=Yatra+One&family=Zeyada&display=swap');
+h1{
+    font-family: 'Roboto Condensed', sans-serif;
+}

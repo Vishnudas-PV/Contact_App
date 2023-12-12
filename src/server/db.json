@@ -1,0 +1,58 @@
+{
+  "contacts": [
+    {
+      "id": 2,
+      "name": "Vimala Sudheesh",
+      "email": "vimala@gmail.com",
+      "phone": "9812345634",
+      "photourl": "https://e7.pngegg.com/pngimages/255/44/png-clipart-avatar-icon-3d-character-icon-material-cartoon-character-photography-thumbnail.png",
+      "company": "XYZ Company",
+      "title": "Software Tester",
+      "GroupId": "2"
+    },
+    {
+      "GroupId": "1",
+      "id": "16",
+      "name": "krishnaraj",
+      "photourl": "https://i.pinimg.com/736x/64/81/22/6481225432795d8cdf48f0f85800cf66.jpg",
+      "email": "krishnaraj@gmail.com",
+      "phone": "79949809877",
+      "company": "TCS",
+      "title": "senior developer"
+    },
+    {
+      "GroupId": "1",
+      "id": "10",
+      "name": "Alfhan",
+      "photourl": "https://i.pinimg.com/736x/64/81/22/6481225432795d8cdf48f0f85800cf66.jpg",
+      "email": "alfhan@gmail.com",
+      "phone": "7676766323",
+      "company": "TCS",
+      "title": "Junior developer"
+    },
+    {
+      "GroupId": "1",
+      "id": "9",
+      "name": "Akash",
+      "photourl": "https://i.pinimg.com/736x/64/81/22/6481225432795d8cdf48f0f85800cf66.jpg",
+      "email": "akash@gmail.com",
+      "phone": "7676766323",
+      "company": "TCS",
+      "title": "Senior developer"
+    }
+  ],
+  "groups": [
+    {
+      "id": "1",
+      "name": "Company"
+    },
+    {
+      "id": "2",
+      "name": "Family"
+    },
+    {
+      "id": "3",
+      "name": "Friends"
+    }
+  ]
+}

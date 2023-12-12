@@ -1,0 +1,94 @@
+<p class="ms-3">Login Details: {{loginDate |date:'short'}}</p>
+<div class="container m-3">
+    <div class="row">
+        <div class="col text-center">
+            <h1>CONTACT MANAGEMENT APPLICATION</h1>
+            <p style="text-align: justify;">content about contact management
+                Contact management refers to the process of organizing and keeping track of contacts or individuals that
+                a business or individual interacts with. It involves collecting and storing contact information,
+                maintaining communication records, and staying organized to effectively manage and utilize these
+                contacts. Contact management plays a crucial role in building and nurturing strong relationships and can
+                be beneficial for businesses of all sizes. Here are some key aspects of contact management:</p>
+        </div>
+    </div>
+    <!-- Add a search input label and button for add contact -->
+    <div class="row ">
+        <div class="col justify-content-between d-flex m-4">
+            <div>
+                <!-- search -->
+                <input (keyup)="search($event)" type="text" class="form-control" placeholder="Search Contact">
+            </div>
+
+            <div>
+                <!-- add contact button -->
+                <button class="btn btn-outline-success" routerLink="addContact">Add Contact</button>
+                <!-- button -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- string interpolation -->
+    <h1 class="text-center ">{{heading}}</h1>
+
+    <!-- {{allContacts|json}} -->
+
+
+    <div class="row">
+        <div class="col-6" *ngFor="let contact of allContacts |filter:searchKey:'name'">
+            <div class="card my-3 shadow">
+                <div class="row">
+                    <div class="col-6">
+                        <!-- image -->
+                        <img [src]="contact.photourl"
+                            alt="" width="200px" height="200px">
+                    </div>
+                    <div class="col-6 mt-3">
+                        <!-- content -->
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                              <div class="ms-2 me-auto">
+                                <div class="fw-bold">Full Name</div>
+                                
+                              {{contact.name}}
+                              </div>
+                            <span class="badge bg-warning rounded-pill">
+                                <a routerLink="/contactManager/viewContact/{{contact.id}}">
+                                <i class="fa-solid fa-eye fa-lg"></i>
+                                </a>
+                            </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                              <div class="ms-2 me-auto">
+                                <div class="fw-bold">Phone Number</div>
+                               {{contact.phone}}
+                              </div>
+
+                              <!-- edit contact -->
+
+                        <span class="badge bg-dark rounded-pill">
+                                <a routerLink="/contactManager/editContact/{{contact.id}}">
+                                <i class="fa-solid fa-phone fa-lg"></i>
+                            </a>
+                        </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                              <div class="ms-2 me-auto">
+                                <div class="fw-bold">Email</div>
+                                {{contact.email}}
+                              </div>
+                              <span (click)="deleteContact(contact.id)" class="badge bg-danger rounded-pill">
+                                <a routerLink="/">
+                                <i class="fa-solid fa-trash fa-lg"></i>
+                                
+                               </a>
+                            </span>
+                        
+                            </li>
+                          </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
